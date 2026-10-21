@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dpr2bsjauod5a"]
+
+[ext_resource type="PackedScene" uid="uid://bk8iaygn7iup4" path="res://water_scene.tscn" id="1_uhqqe"]
+[ext_resource type="PackedScene" uid="uid://cs48dget4sfbp" path="res://cube.tscn" id="2_ia1lp"]
+
+[node name="TestScene" type="Node3D" unique_id=256581938]
+
+[node name="Cube" parent="." unique_id=1125258727 instance=ExtResource("2_ia1lp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.023259878, 0)
+mass = 0.002
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1534576556]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 13, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1055527132]
+transform = Transform3D(0.6816649, 0.21981736, -0.69786346, 0, 0.95380247, 0.3004346, 0.73166454, -0.2047957, 0.65017366, -1.6156273, 0.88308644, 1.3039625)
+
+[node name="WaterScene2" parent="." unique_id=112002650 instance=ExtResource("1_uhqqe")]
+transform = Transform3D(14.5, 0, 0, 0, 14.5, 0, 0, 0, 14.5, 0, 0, 0)

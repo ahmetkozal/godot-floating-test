@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bk8iaygn7iup4"]
+
+[ext_resource type="Shader" uid="uid://bdda80icw5t6l" path="res://assets/toon_water/toon_water.gdshader" id="1_0iimn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fs1v6"]
+render_priority = 0
+shader = ExtResource("1_0iimn")
+shader_parameter/WATER_COL = Color(0.04, 0.38, 0.88, 1)
+shader_parameter/WATER2_COL = Color(0.04, 0.35, 0.78, 1)
+shader_parameter/FOAM_COL = Color(0.8125, 0.9609, 0.9648, 1)
+shader_parameter/distortion_speed = 2.0
+shader_parameter/tile = Vector2(100, 100)
+shader_parameter/wave_speed = 2.0
+shader_parameter/wave_amplitude = 0.005
+shader_parameter/wave_frequency = 3.0
+shader_parameter/time_offset = 0.0
+shader_parameter/water_size = Vector2(128, 128)
+shader_parameter/water_transparency = 0.8
+shader_parameter/water_depth_factor = 0.1
+shader_parameter/foam_width = 0.5
+shader_parameter/foam_edge_softness = 0.05
+shader_parameter/foam_smoothness = 0.03
+shader_parameter/foam_distortion_speed = 0.5
+shader_parameter/foam_distortion_amount = 0.1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_e4l18"]
+lightmap_size_hint = Vector2i(12, 12)
+material = SubResource("ShaderMaterial_fs1v6")
+
+[node name="WaterScene" type="Node3D" unique_id=112002650]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=734133306]
+mesh = SubResource("PlaneMesh_e4l18")
