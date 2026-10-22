@@ -4,3 +4,5 @@ res://cube.gd
 res://cube.tscn
 res://player.tscn
 res://player.gd
+res://scenes/cube.tscn
+res://scenes/player.tscn

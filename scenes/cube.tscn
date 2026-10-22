@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cs48dget4sfbp"]
 
-[ext_resource type="Script" uid="uid://davhlj0h5ofur" path="res://cube.gd" id="1_jbd7x"]
+[ext_resource type="Script" uid="uid://davhlj0h5ofur" path="res://scripts/cube.gd" id="1_7ufek"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ompgf"]
 size = Vector3(4, 2, 8)
@@ -9,7 +9,7 @@ size = Vector3(4, 2, 8)
 size = Vector3(4, 2, 8)
 
 [node name="Cube" type="RigidBody3D" unique_id=1125258727]
-script = ExtResource("1_jbd7x")
+script = ExtResource("1_7ufek")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=189194375]
 shape = SubResource("BoxShape3D_ompgf")

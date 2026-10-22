@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dpr2bsjauod5a"]
 
-[ext_resource type="PackedScene" uid="uid://bk8iaygn7iup4" path="res://water_scene.tscn" id="1_uhqqe"]
-[ext_resource type="PackedScene" uid="uid://cs48dget4sfbp" path="res://cube.tscn" id="2_ia1lp"]
-[ext_resource type="PackedScene" uid="uid://bbthvg5meulow" path="res://player.tscn" id="3_sasra"]
+[ext_resource type="PackedScene" uid="uid://bk8iaygn7iup4" path="res://scenes/water_scene.tscn" id="1_uhqqe"]
+[ext_resource type="PackedScene" uid="uid://cs48dget4sfbp" path="res://scenes/cube.tscn" id="2_ia1lp"]
+[ext_resource type="PackedScene" uid="uid://bbthvg5meulow" path="res://scenes/player.tscn" id="3_sasra"]
 
 [node name="TestScene" type="Node3D" unique_id=256581938]
 
