@@ -3,13 +3,19 @@
 [ext_resource type="Script" uid="uid://davhlj0h5ofur" path="res://scripts/cube.gd" id="1_7ufek"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ompgf"]
-size = Vector3(4, 2, 8)
+size = Vector3(6, 4, 12)
 
 [sub_resource type="BoxMesh" id="BoxMesh_j4vtr"]
-size = Vector3(4, 2, 8)
+size = Vector3(6, 4, 12)
 
-[node name="Cube" type="RigidBody3D" unique_id=1125258727]
+[node name="Cube" type="RigidBody3D" unique_id=1125258727 node_paths=PackedStringArray("buoyancy_points")]
+collision_layer = 2
+collision_mask = 0
+mass = 200.0
 script = ExtResource("1_7ufek")
+desired_sink = 0.1
+drag_factor = 1.5
+buoyancy_points = [NodePath("BuoyancyPoints")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=189194375]
 shape = SubResource("BoxShape3D_ompgf")
@@ -18,16 +24,15 @@ shape = SubResource("BoxShape3D_ompgf")
 mesh = SubResource("BoxMesh_j4vtr")
 
 [node name="BuoyancyPoints" type="Node3D" parent="." unique_id=457472427]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7912905, 0)
 
 [node name="Marker3D" type="Marker3D" parent="BuoyancyPoints" unique_id=261330758]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -2.7617683, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1.2613637, -4)
 
 [node name="Marker3D2" type="Marker3D" parent="BuoyancyPoints" unique_id=736790415]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -2.7617683, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1.2613637, -4)
 
 [node name="Marker3D3" type="Marker3D" parent="BuoyancyPoints" unique_id=1736713804]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -2.7617683, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1.2613637, 4)
 
 [node name="Marker3D4" type="Marker3D" parent="BuoyancyPoints" unique_id=1443085834]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -2.7617683, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1.2613637, 4)

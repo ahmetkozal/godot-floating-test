@@ -1,8 +1,6 @@
-res://test_scene.tscn
+res://scenes/test_scene.tscn
 res://assets/toon_water/toon_water.gdshader
-res://cube.gd
-res://cube.tscn
-res://player.tscn
-res://player.gd
 res://scenes/cube.tscn
+res://scripts/player.gd
 res://scenes/player.tscn
+res://scripts/cube.gd
