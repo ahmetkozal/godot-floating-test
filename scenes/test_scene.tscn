@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bk8iaygn7iup4" path="res://scenes/water_scene.tscn" id="1_uhqqe"]
 [ext_resource type="PackedScene" uid="uid://cs48dget4sfbp" path="res://scenes/cube.tscn" id="2_ia1lp"]
 [ext_resource type="PackedScene" uid="uid://bbthvg5meulow" path="res://scenes/player.tscn" id="3_sasra"]
+[ext_resource type="PackedScene" uid="uid://bnokaap3ltljb" path="res://scenes/sloop.tscn" id="4_7ddre"]
 
 [node name="TestScene" type="Node3D" unique_id=256581938]
 
@@ -14,7 +15,12 @@ drag_factor = 3.0
 transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 13, 0)
 
 [node name="WaterScene2" parent="." unique_id=112002650 instance=ExtResource("1_uhqqe")]
-transform = Transform3D(14.5, 0, 0, 0, 14.5, 0, 0, 0, 14.5, 0, 0, 0)
+transform = Transform3D(67.52, 0, 0, 0, 67.52, 0, 0, 0, 67.52, 0, 0, 0)
 
 [node name="Player" parent="." unique_id=381574291 instance=ExtResource("3_sasra")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.185438, -2.5154657)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 5.185438, -2.5154657)
+
+[node name="Sloop" parent="." unique_id=138346493 instance=ExtResource("4_7ddre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.54943, 4.872542, 0.06732559)
+collision_layer = 2
+collision_mask = 0

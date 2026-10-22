@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bnokaap3ltljb"]
+
+[ext_resource type="Script" uid="uid://davhlj0h5ofur" path="res://scripts/floater.gd" id="1_n4okx"]
+[ext_resource type="PackedScene" uid="uid://d0rxes64kc2t6" path="res://assets/sloop-body.glb" id="1_vkja7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tf4xa"]
+render_priority = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e4l18"]
+size = Vector3(17.32129, 0.9934082, 14.135742)
+
+[node name="Sloop" type="RigidBody3D" unique_id=138346493 node_paths=PackedStringArray("buoyancy_points")]
+mass = 200.0
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -10, 0)
+script = ExtResource("1_n4okx")
+desired_sink = 0.2
+buoyancy_points = [NodePath("Node3D")]
+
+[node name="sloop-body" parent="." unique_id=637810084 instance=ExtResource("1_vkja7")]
+
+[node name="Cube" parent="sloop-body" index="0" unique_id=660646122]
+surface_material_override/0 = SubResource("StandardMaterial3D_tf4xa")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=500895833]
+
+[node name="Marker3D" type="Marker3D" parent="Node3D" unique_id=1390632181]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.0547719, 18)
+
+[node name="Marker3D2" type="Marker3D" parent="Node3D" unique_id=360140949]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.0547719, 18)
+
+[node name="Marker3D3" type="Marker3D" parent="Node3D" unique_id=246445964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.0547719, -18)
+
+[node name="Marker3D4" type="Marker3D" parent="Node3D" unique_id=520480885]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.0547719, -18)
+
+[node name="bottom" type="CollisionShape3D" parent="." unique_id=582739784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.0545957, -0.76603127)
+shape = SubResource("BoxShape3D_e4l18")
+
+[node name="hall" type="CollisionShape3D" parent="." unique_id=2010554709]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15234375, 5.692148, -14.452005)
+shape = SubResource("BoxShape3D_e4l18")
+
+[editable path="sloop-body"]
