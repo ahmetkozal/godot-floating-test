@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://ctb4vedljb3xb"]
+
+[ext_resource type="Shader" uid="uid://boc47f6xvne4q" path="res://materials/water-mask.gdshader" id="1_wac8f"]
+
+[resource]
+render_priority = 1
+shader = ExtResource("1_wac8f")

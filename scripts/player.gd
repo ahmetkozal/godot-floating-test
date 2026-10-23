@@ -22,8 +22,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	# Gravity
-	if not is_on_floor():
-		velocity.y -= gravity * delta
+	#if not is_on_floor():
+		#velocity.y -= gravity * delta
 	if Input.is_action_pressed("up"):
 		position.y += 10.0 * delta
 	if Input.is_action_pressed("down"):

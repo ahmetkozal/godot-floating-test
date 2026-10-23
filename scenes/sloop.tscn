@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://davhlj0h5ofur" path="res://scripts/floater.gd" id="1_n4okx"]
 [ext_resource type="PackedScene" uid="uid://d0rxes64kc2t6" path="res://assets/sloop-body.glb" id="1_vkja7"]
+[ext_resource type="Material" uid="uid://ctb4vedljb3xb" path="res://materials/water-mask.tres" id="3_n5tk3"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tf4xa"]
-render_priority = 1
+[sub_resource type="PlaneMesh" id="PlaneMesh_2jcuo"]
+material = ExtResource("3_n5tk3")
+size = Vector2(13.965, 34.17)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e4l18"]
 size = Vector3(17.32129, 0.9934082, 14.135742)
@@ -19,8 +21,9 @@ buoyancy_points = [NodePath("Node3D")]
 
 [node name="sloop-body" parent="." unique_id=637810084 instance=ExtResource("1_vkja7")]
 
-[node name="Cube" parent="sloop-body" index="0" unique_id=660646122]
-surface_material_override/0 = SubResource("StandardMaterial3D_tf4xa")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="sloop-body" unique_id=1447395132]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.3049803, -4.295002)
+mesh = SubResource("PlaneMesh_2jcuo")
 
 [node name="Node3D" type="Node3D" parent="." unique_id=500895833]
 

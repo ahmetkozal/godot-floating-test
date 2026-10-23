@@ -18,9 +18,9 @@ transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, 
 transform = Transform3D(67.52, 0, 0, 0, 67.52, 0, 0, 0, 67.52, 0, 0, 0)
 
 [node name="Player" parent="." unique_id=381574291 instance=ExtResource("3_sasra")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 5.185438, -2.5154657)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.10776043, 10.635136, -0.010480881)
 
 [node name="Sloop" parent="." unique_id=138346493 instance=ExtResource("4_7ddre")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.54943, 4.872542, 0.06732559)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.958036, 4.872542, 0.06732559)
 collision_layer = 2
 collision_mask = 0
