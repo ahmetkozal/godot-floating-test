@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://d1dqq17gbwq4g"]
+
+[ext_resource type="Script" uid="uid://11g1vp10dplu" path="res://scripts/wheel.gd" id="1_hm1pg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qt6nl"]
+size = Vector3(1, 1.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tk53t"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pm0dr"]
+material = SubResource("StandardMaterial3D_tk53t")
+size = Vector3(1, 1.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pm0dr"]
+size = Vector3(1, 1.5, 1.2543945)
+
+[node name="Wheel" type="StaticBody3D" unique_id=1274205621]
+collision_layer = 4
+script = ExtResource("1_hm1pg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2039935217]
+shape = SubResource("BoxShape3D_qt6nl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1817899313]
+mesh = SubResource("BoxMesh_pm0dr")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=684444497]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1493848049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.37719727)
+shape = SubResource("BoxShape3D_pm0dr")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

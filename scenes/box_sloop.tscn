@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://ceccs7u5jvy8c"]
 
 [ext_resource type="Script" uid="uid://davhlj0h5ofur" path="res://scripts/floater.gd" id="1_hleft"]
-[ext_resource type="Material" uid="uid://ctb4vedljb3xb" path="res://materials/water-mask.tres" id="2_wt1xo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hleft"]
 albedo_color = Color(1, 0, 0, 1)
@@ -49,15 +48,13 @@ size = Vector3(8, 4, 0.2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_tahk8"]
 size = Vector3(8, 0.2, 4)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_2pt8w"]
-size = Vector2(8, 12)
-
 [node name="BoxSloop" type="RigidBody3D" unique_id=1119565273 node_paths=PackedStringArray("buoyancy_points")]
 collision_layer = 2
 collision_mask = 0
 mass = 200.0
 center_of_mass_mode = 1
 script = ExtResource("1_hleft")
+desired_sink = 0.5
 drag_factor = 1.0
 buoyancy_points = [NodePath("BuoyancyPoints")]
 
@@ -124,9 +121,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, -0.45344377, -5)
 
 [node name="Marker3D4" type="Marker3D" parent="BuoyancyPoints" unique_id=2100062302]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -0.45344377, -5)
-
-[node name="WaterMask" type="MeshInstance3D" parent="." unique_id=780826309]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.362086, 0)
-visible = false
-mesh = SubResource("PlaneMesh_2pt8w")
-surface_material_override/0 = ExtResource("2_wt1xo")

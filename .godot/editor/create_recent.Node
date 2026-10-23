@@ -1,7 +1,9 @@
+StaticBody3D
+CollisionShape3D
+Area3D
 MeshInstance3D
 Node3D
 Marker3D
-CollisionShape3D
 RigidBody3D
 MultiMeshInstance3D
 CSGPolygon3D

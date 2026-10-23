@@ -1,11 +1,15 @@
 extends CharacterBody3D
 
+@export var sloop: RigidBody3D
 @export var mouse_sensitivity: float = 0.0015
 @export var speed := 10.0
 @export var jump_velocity := 4.5
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready var head: Node3D = $Head
+
+var on_wheel: bool
+var sloop_rotate_power: float = 0.0
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -45,5 +49,21 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
+	
+	#if on_wheel:
+		#if Input.is_action_pressed("wheel_left"):
+			#sloop.rotate_vel-=1
+		#if Input.is_action_pressed("wheel_right"):
+			#sloop.rotate_vel+=1
 
 	move_and_slide()
+
+
+func _on_wheel_player_on_wheel() -> void:
+	on_wheel = true
+	print("ON")
+
+
+func _on_wheel_player_not_on_wheel() -> void:
+	on_wheel = false
+	print("OFF")
