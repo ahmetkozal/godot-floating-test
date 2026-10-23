@@ -14,8 +14,6 @@ var in_water: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(get_path())
-	print("Water reference: ", water)
 	water_shader = water.get_active_material(0)
 	if buoyancy_points.size() > 0:
 		water_str = (mass * gravity) / (desired_sink * buoyancy_points.size())

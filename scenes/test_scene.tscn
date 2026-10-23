@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://bk8iaygn7iup4" path="res://scenes/water_scene.tscn" id="1_uhqqe"]
 [ext_resource type="PackedScene" uid="uid://bbthvg5meulow" path="res://scenes/player.tscn" id="3_sasra"]
 [ext_resource type="PackedScene" uid="uid://ceccs7u5jvy8c" path="res://scenes/box_sloop.tscn" id="4_7ddre"]
-[ext_resource type="PackedScene" uid="uid://d1dqq17gbwq4g" path="res://scenes/wheel.tscn" id="5_qjeyg"]
 
 [node name="TestScene" type="Node3D" unique_id=256581938]
 
@@ -13,17 +12,27 @@ transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, 
 [node name="WaterScene2" parent="." unique_id=112002650 instance=ExtResource("1_uhqqe")]
 transform = Transform3D(67.52, 0, 0, 0, 67.52, 0, 0, 0, 67.52, 0, 0, 0)
 
-[node name="Player" parent="." unique_id=381574291 node_paths=PackedStringArray("sloop") instance=ExtResource("3_sasra")]
+[node name="Player" parent="." unique_id=381574291 node_paths=PackedStringArray("sloop", "sloop_controls", "sail_controls") instance=ExtResource("3_sasra")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 14.397004, 6.028466, 3.5517416)
 sloop = NodePath("../BoxSloop")
+sloop_controls = NodePath("../BoxSloop/SloopControls")
+sail_controls = NodePath("../BoxSloop/SailsControls")
 
 [node name="BoxSloop" parent="." unique_id=1119565273 node_paths=PackedStringArray("water") instance=ExtResource("4_7ddre")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.325947, 0.035235167, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.325947, 0.53598857, 0)
 water = NodePath("../WaterScene2")
 desired_sink = 0.2
 
-[node name="Wheel" parent="BoxSloop" unique_id=524819763 instance=ExtResource("5_qjeyg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3324056, 2.417595)
+[node name="Wheel" parent="BoxSloop/WheelPlatform" parent_id_path=PackedInt32Array(1119565273, 425913982) index="0" unique_id=1274205621 node_paths=PackedStringArray("player")]
+player = NodePath("../../../Player")
 
-[connection signal="player_not_on_wheel" from="BoxSloop/Wheel" to="Player" method="_on_wheel_player_not_on_wheel"]
-[connection signal="player_on_wheel" from="BoxSloop/Wheel" to="Player" method="_on_wheel_player_on_wheel"]
+[node name="SailsControls" parent="BoxSloop" index="12" unique_id=541449406 node_paths=PackedStringArray("player")]
+player = NodePath("../../Player")
+
+[connection signal="player_not_on_wheel" from="BoxSloop/WheelPlatform/Wheel" to="Player" method="_on_wheel_player_not_on_wheel"]
+[connection signal="player_on_wheel" from="BoxSloop/WheelPlatform/Wheel" to="Player" method="_on_wheel_player_on_wheel"]
+[connection signal="body_entered" from="BoxSloop/SailsControls/SailsControls" to="Player" method="_on_sails_controls_body_entered"]
+[connection signal="body_exited" from="BoxSloop/SailsControls/SailsControls" to="Player" method="_on_sails_controls_body_exited"]
+
+[editable path="BoxSloop"]
+[editable path="BoxSloop/SailsControls"]

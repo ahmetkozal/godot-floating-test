@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://ceccs7u5jvy8c"]
 
 [ext_resource type="Script" uid="uid://davhlj0h5ofur" path="res://scripts/floater.gd" id="1_hleft"]
+[ext_resource type="PackedScene" uid="uid://d1dqq17gbwq4g" path="res://scenes/wheel.tscn" id="2_wt1xo"]
+[ext_resource type="Script" uid="uid://hrn5d83qldtr" path="res://scripts/sloop_controls.gd" id="3_jsi37"]
+[ext_resource type="PackedScene" uid="uid://c8w2tv6oqcrx3" path="res://scenes/sails.tscn" id="4_tahk8"]
+[ext_resource type="Script" uid="uid://xwm3vetxqvpj" path="res://scripts/sails_controls.gd" id="5_vyjpp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hleft"]
 albedo_color = Color(1, 0, 0, 1)
@@ -30,6 +34,81 @@ albedo_color = Color(1, 0.32941177, 0, 1)
 material = SubResource("StandardMaterial3D_tahk8")
 size = Vector3(8, 0.2, 4)
 
+[sub_resource type="BoxMesh" id="BoxMesh_e4l18"]
+size = Vector3(0.1, 1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jsi37"]
+size = Vector3(0.1, 1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tahk8"]
+size = Vector3(0.1, 1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vyjpp"]
+size = Vector3(0.1, 1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jcp18"]
+size = Vector3(0.1, 1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_p05g5"]
+size = Vector3(0.1, 1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ue3pb"]
+size = Vector3(0.1, 1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_taffe"]
+size = Vector3(0.1, 1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_av3aj"]
+size = Vector3(0.1, 1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6j1ap"]
+size = Vector3(0.1, 1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ho8r1"]
+size = Vector3(0.1, 1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e0vv7"]
+size = Vector3(0.1, 1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_n1582"]
+size = Vector3(0.1, 1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_spsg6"]
+size = Vector3(0.1, 1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2pt8w"]
+size = Vector3(0.1, 1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bnht0"]
+size = Vector3(0.1, 1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qb6lf"]
+size = Vector3(0.1, 1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5g427"]
+size = Vector3(0.1, 1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_w4w0d"]
+size = Vector3(0.1, 1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ompgf"]
+size = Vector3(0.2, 0.1, 4.3732057)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yyttb"]
+size = Vector3(0.2, 0.1, 4.3732057)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yuh3g"]
+size = Vector3(8, 0.1, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e4l18"]
+size = Vector3(0.2, 1.0485351, 4.3791075)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vyjpp"]
+size = Vector3(0.2, 1.0485351, 4.3791075)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jcp18"]
+size = Vector3(8, 1.049, 0.2)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_pm0dr"]
 size = Vector3(8, 0.2, 12)
 
@@ -51,8 +130,12 @@ size = Vector3(8, 0.2, 4)
 [node name="BoxSloop" type="RigidBody3D" unique_id=1119565273 node_paths=PackedStringArray("buoyancy_points")]
 collision_layer = 2
 collision_mask = 0
+axis_lock_angular_x = true
+axis_lock_angular_z = true
 mass = 200.0
 center_of_mass_mode = 1
+linear_damp = 0.2
+angular_damp = 0.1
 script = ExtResource("1_hleft")
 desired_sink = 0.5
 drag_factor = 1.0
@@ -84,6 +167,108 @@ mesh = SubResource("BoxMesh_qnuxe")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.508562, 3.8)
 mesh = SubResource("BoxMesh_mlvbt")
 
+[node name="Fences" type="Node3D" parent="Hull" unique_id=323854756]
+
+[node name="Fence" type="MeshInstance3D" parent="Hull/Fences" unique_id=1646109393]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1, 3.1, 1.9)
+mesh = SubResource("BoxMesh_e4l18")
+
+[node name="Fence2" type="MeshInstance3D" parent="Hull/Fences" unique_id=1414548680]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1, 3.1, 2.9)
+mesh = SubResource("BoxMesh_jsi37")
+
+[node name="Fence3" type="MeshInstance3D" parent="Hull/Fences" unique_id=1911958429]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1, 3.1, 3.9)
+mesh = SubResource("BoxMesh_tahk8")
+
+[node name="Fence4" type="MeshInstance3D" parent="Hull/Fences" unique_id=403405275]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1, 3.1, 3.9)
+mesh = SubResource("BoxMesh_vyjpp")
+
+[node name="Fence5" type="MeshInstance3D" parent="Hull/Fences" unique_id=743192717]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1, 3.1, 4.9)
+mesh = SubResource("BoxMesh_jcp18")
+
+[node name="Fence6" type="MeshInstance3D" parent="Hull/Fences" unique_id=1383273297]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1, 3.1, 5.9)
+mesh = SubResource("BoxMesh_p05g5")
+
+[node name="Fence12" type="MeshInstance3D" parent="Hull/Fences" unique_id=1907124972]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1, 3.1, 5.9)
+mesh = SubResource("BoxMesh_ue3pb")
+
+[node name="Fence16" type="MeshInstance3D" parent="Hull/Fences" unique_id=2104734267]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1, 3.1, 5.9)
+mesh = SubResource("BoxMesh_taffe")
+
+[node name="Fence17" type="MeshInstance3D" parent="Hull/Fences" unique_id=1906083828]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.099999905, 3.1, 5.9)
+mesh = SubResource("BoxMesh_av3aj")
+
+[node name="Fence18" type="MeshInstance3D" parent="Hull/Fences" unique_id=2138579706]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0999999, 3.1, 5.9)
+mesh = SubResource("BoxMesh_6j1ap")
+
+[node name="Fence7" type="MeshInstance3D" parent="Hull/Fences" unique_id=526815294]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1, 3.1, 5.9)
+mesh = SubResource("BoxMesh_ho8r1")
+
+[node name="Fence13" type="MeshInstance3D" parent="Hull/Fences" unique_id=1363758002]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1, 3.1, 5.9)
+mesh = SubResource("BoxMesh_e0vv7")
+
+[node name="Fence14" type="MeshInstance3D" parent="Hull/Fences" unique_id=1143222003]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1, 3.1, 5.9)
+mesh = SubResource("BoxMesh_n1582")
+
+[node name="Fence15" type="MeshInstance3D" parent="Hull/Fences" unique_id=1717259625]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0999999, 3.1, 5.9)
+mesh = SubResource("BoxMesh_spsg6")
+
+[node name="Fence19" type="MeshInstance3D" parent="Hull/Fences" unique_id=1508448705]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.099999905, 3.1, 5.9)
+mesh = SubResource("BoxMesh_2pt8w")
+
+[node name="Fence8" type="MeshInstance3D" parent="Hull/Fences" unique_id=1116661345]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1, 3.1, 4.9)
+mesh = SubResource("BoxMesh_bnht0")
+
+[node name="Fence9" type="MeshInstance3D" parent="Hull/Fences" unique_id=873099968]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1, 3.1, 3.9)
+mesh = SubResource("BoxMesh_qb6lf")
+
+[node name="Fence10" type="MeshInstance3D" parent="Hull/Fences" unique_id=1484476759]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1, 3.1, 2.9)
+mesh = SubResource("BoxMesh_5g427")
+
+[node name="Fence11" type="MeshInstance3D" parent="Hull/Fences" unique_id=1672028297]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1, 3.1, 1.9000001)
+mesh = SubResource("BoxMesh_w4w0d")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hull/Fences" unique_id=1884462389]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1, 3.6, 3.8116026)
+mesh = SubResource("BoxMesh_ompgf")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Hull/Fences" unique_id=1981567993]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1, 3.6, 3.812)
+mesh = SubResource("BoxMesh_yyttb")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Hull/Fences" unique_id=575865816]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6, 5.898)
+mesh = SubResource("BoxMesh_yuh3g")
+
+[node name="FenceColLeft" type="CollisionShape3D" parent="." unique_id=975251321]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1, 3.125, 3.818)
+shape = SubResource("BoxShape3D_e4l18")
+
+[node name="FenceColRight" type="CollisionShape3D" parent="." unique_id=1219728409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1, 3.125, 3.818)
+shape = SubResource("BoxShape3D_vyjpp")
+
+[node name="FenceCol" type="CollisionShape3D" parent="." unique_id=266202496]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.125, 5.9)
+shape = SubResource("BoxShape3D_jcp18")
+
 [node name="BottomCol" type="CollisionShape3D" parent="." unique_id=300768146]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2915378, 0)
 shape = SubResource("BoxShape3D_pm0dr")
@@ -108,6 +293,10 @@ shape = SubResource("BoxShape3D_jsi37")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.508562, 3.8)
 shape = SubResource("BoxShape3D_tahk8")
 
+[node name="Wheel" parent="WheelPlatform" unique_id=1274205621 node_paths=PackedStringArray("sloop") instance=ExtResource("2_wt1xo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8062296, -1.4831004)
+sloop = NodePath("../..")
+
 [node name="BuoyancyPoints" type="Node3D" parent="." unique_id=218901415]
 
 [node name="Marker3D" type="Marker3D" parent="BuoyancyPoints" unique_id=1371366889]
@@ -121,3 +310,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, -0.45344377, -5)
 
 [node name="Marker3D4" type="Marker3D" parent="BuoyancyPoints" unique_id=2100062302]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -0.45344377, -5)
+
+[node name="SloopControls" type="Node3D" parent="." unique_id=1381620812 node_paths=PackedStringArray("sloop")]
+script = ExtResource("3_jsi37")
+sloop = NodePath("..")
+
+[node name="SailsControls" parent="." unique_id=541449406 node_paths=PackedStringArray("sloop") instance=ExtResource("4_tahk8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7995138, 3.4001865, 3.8702383)
+script = ExtResource("5_vyjpp")
+sloop = NodePath("..")
+
+[node name="SailsControls" parent="SailsControls" index="0" unique_id=140064641]
+collision_layer = 4
+
+[connection signal="body_entered" from="SailsControls/SailsControls" to="SailsControls" method="_on_sails_controls_body_entered"]
+[connection signal="body_exited" from="SailsControls/SailsControls" to="SailsControls" method="_on_sails_controls_body_exited"]
+
+[editable path="SailsControls"]

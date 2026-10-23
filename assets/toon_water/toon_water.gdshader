@@ -307,9 +307,9 @@ void fragment() {
 	// Sloop
 	vec3 ship_local_pos = (ship_inverse_transform * water_world_pos).xyz;
 	if (
-    ship_local_pos.x > -4.0 && ship_local_pos.x < 4.0 &&
+    ship_local_pos.x > -4.1 && ship_local_pos.x < 4.1 &&
     ship_local_pos.y > -1.292 && ship_local_pos.y < 2.509 &&
-    ship_local_pos.z > -6.0 && ship_local_pos.z < 6.0
+    ship_local_pos.z > -6.1 && ship_local_pos.z < 6.1
 ) {
     discard;
 }

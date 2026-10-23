@@ -1,10 +1,8 @@
+res://scenes/box_sloop.tscn
 res://assets/toon_water/toon_water.gdshader
 res://materials/water-mask.gdshader
-res://scenes/wheel.tscn
-res://scenes/box_sloop.tscn
+res://scripts/sails_controls.gd
 res://scenes/test_scene.tscn
-res://scenes/player.tscn
-res://scripts/wheel.gd
 res://scripts/player.gd
-res://scripts/floater.gd
+res://scenes/sails.tscn
 res://scripts/sloop_controls.gd
