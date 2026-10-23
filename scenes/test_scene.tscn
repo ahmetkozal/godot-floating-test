@@ -3,12 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://bk8iaygn7iup4" path="res://scenes/water_scene.tscn" id="1_uhqqe"]
 [ext_resource type="PackedScene" uid="uid://cs48dget4sfbp" path="res://scenes/cube.tscn" id="2_ia1lp"]
 [ext_resource type="PackedScene" uid="uid://bbthvg5meulow" path="res://scenes/player.tscn" id="3_sasra"]
-[ext_resource type="PackedScene" uid="uid://bnokaap3ltljb" path="res://scenes/sloop.tscn" id="4_7ddre"]
+[ext_resource type="PackedScene" uid="uid://ceccs7u5jvy8c" path="res://scenes/box_sloop.tscn" id="4_7ddre"]
 
 [node name="TestScene" type="Node3D" unique_id=256581938]
 
-[node name="Cube" parent="." unique_id=1125258727 instance=ExtResource("2_ia1lp")]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 1.3289814, 0)
+[node name="Cube" parent="." unique_id=1125258727 node_paths=PackedStringArray("water") instance=ExtResource("2_ia1lp")]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 14.803764, 0)
+water = NodePath("../WaterScene2")
 drag_factor = 3.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1534576556]
@@ -18,9 +19,8 @@ transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, 
 transform = Transform3D(67.52, 0, 0, 0, 67.52, 0, 0, 0, 67.52, 0, 0, 0)
 
 [node name="Player" parent="." unique_id=381574291 instance=ExtResource("3_sasra")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.10776043, 10.635136, -0.010480881)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 14.397004, 6.028466, 3.5517416)
 
-[node name="Sloop" parent="." unique_id=138346493 instance=ExtResource("4_7ddre")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.958036, 4.872542, 0.06732559)
-collision_layer = 2
-collision_mask = 0
+[node name="BoxSloop" parent="." unique_id=1119565273 node_paths=PackedStringArray("water") instance=ExtResource("4_7ddre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.325947, -1.6061742, 0)
+water = NodePath("../WaterScene2")

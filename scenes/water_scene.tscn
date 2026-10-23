@@ -5,12 +5,13 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fs1v6"]
 render_priority = -1
 shader = ExtResource("1_0iimn")
+shader_parameter/ship_inverse_transform = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
 shader_parameter/WATER_COL = Color(0.23479098, 0.018597169, 0.2969674, 1)
 shader_parameter/WATER2_COL = Color(0.44588703, 0.14121571, 0.31207198, 1)
 shader_parameter/FOAM_COL = Color(0.96736926, 0.9931963, 0.99370974, 1)
 shader_parameter/distortion_speed = 2.0
-shader_parameter/tile = Vector2(100, 100)
-shader_parameter/wave_speed = 2.0
+shader_parameter/tile = Vector2(150, 150)
+shader_parameter/wave_speed = 1.0
 shader_parameter/wave_amplitude = 0.005
 shader_parameter/wave_frequency = 3.0
 shader_parameter/time_offset = 0.0
@@ -27,7 +28,7 @@ shader_parameter/foam_distortion_amount = 0.1
 lightmap_size_hint = Vector2i(12, 12)
 material = SubResource("ShaderMaterial_fs1v6")
 
-[node name="WaterScene" type="Node3D" unique_id=112002650]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=734133306]
+[node name="MeshInstance3D" type="MeshInstance3D" unique_id=734133306]
 mesh = SubResource("PlaneMesh_e4l18")
+
+[node name="WaterScene" type="Node3D" parent="." unique_id=112002650]

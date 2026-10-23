@@ -1,7 +1,8 @@
-res://scenes/test_scene.tscn
 res://assets/toon_water/toon_water.gdshader
-res://materials/water-mask.tres
 res://materials/water-mask.gdshader
-res://scenes/sloop.tscn
+res://scenes/box_sloop.tscn
+res://scenes/test_scene.tscn
+res://scenes/water_scene.tscn
 res://scenes/player.tscn
 res://scripts/player.gd
+res://scripts/floater.gd

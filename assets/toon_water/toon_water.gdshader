@@ -7,6 +7,8 @@
 
 
 shader_type spatial;
+// Sloop
+uniform mat4 ship_inverse_transform;
 
 // Water color and foam color
 uniform vec4 WATER_COL : source_color = vec4(0.04, 0.38, 0.88, 1.0);
@@ -302,6 +304,16 @@ void fragment() {
     // Calculate the depth of the water surface in view space
     vec4 water_world_pos = INV_VIEW_MATRIX * vec4(VERTEX, 1.0);
     vec4 water_view_pos = VIEW_MATRIX * water_world_pos;
+	// Sloop
+	vec3 ship_local_pos = (ship_inverse_transform * water_world_pos).xyz;
+	if (
+    ship_local_pos.x > -4.0 && ship_local_pos.x < 4.0 &&
+    ship_local_pos.y > -1.292 && ship_local_pos.y < 2.509 &&
+    ship_local_pos.z > -6.0 && ship_local_pos.z < 6.0
+) {
+    discard;
+}
+	// Sloop
     float linear_water_depth = -water_view_pos.z;
     
     // Calculate depth difference

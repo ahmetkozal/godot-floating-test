@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://ceccs7u5jvy8c"]
+
+[ext_resource type="Script" uid="uid://davhlj0h5ofur" path="res://scripts/floater.gd" id="1_hleft"]
+[ext_resource type="Material" uid="uid://ctb4vedljb3xb" path="res://materials/water-mask.tres" id="2_wt1xo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hleft"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pm0dr"]
+material = SubResource("StandardMaterial3D_hleft")
+size = Vector3(8, 0.2, 12)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jsi37"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qt6nl"]
+material = SubResource("StandardMaterial3D_jsi37")
+size = Vector3(0.2, 4, 12)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wt1xo"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qnuxe"]
+material = SubResource("StandardMaterial3D_wt1xo")
+size = Vector3(8, 4, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tahk8"]
+albedo_color = Color(1, 0.32941177, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mlvbt"]
+material = SubResource("StandardMaterial3D_tahk8")
+size = Vector3(8, 0.2, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pm0dr"]
+size = Vector3(8, 0.2, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r686l"]
+size = Vector3(0.2, 4, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hleft"]
+size = Vector3(0.2, 4, 12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wt1xo"]
+size = Vector3(8, 4, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jsi37"]
+size = Vector3(8, 4, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tahk8"]
+size = Vector3(8, 0.2, 4)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2pt8w"]
+size = Vector2(8, 12)
+
+[node name="BoxSloop" type="RigidBody3D" unique_id=1119565273 node_paths=PackedStringArray("buoyancy_points")]
+collision_layer = 2
+collision_mask = 0
+mass = 200.0
+center_of_mass_mode = 1
+script = ExtResource("1_hleft")
+drag_factor = 1.0
+buoyancy_points = [NodePath("BuoyancyPoints")]
+
+[node name="Hull" type="Node3D" parent="." unique_id=80529819]
+
+[node name="Bottom" type="MeshInstance3D" parent="Hull" unique_id=2051560985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2915378, 0)
+mesh = SubResource("BoxMesh_pm0dr")
+
+[node name="Left" type="MeshInstance3D" parent="Hull" unique_id=2067243068]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1, 0.60846233, 0)
+mesh = SubResource("BoxMesh_qt6nl")
+
+[node name="Right" type="MeshInstance3D" parent="Hull" unique_id=1624213697]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1, 0.60846233, 0)
+mesh = SubResource("BoxMesh_qt6nl")
+
+[node name="Front" type="MeshInstance3D" parent="Hull" unique_id=27521088]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.60846233, -5.9)
+mesh = SubResource("BoxMesh_qnuxe")
+
+[node name="Back" type="MeshInstance3D" parent="Hull" unique_id=767428086]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.60846233, 5.9)
+mesh = SubResource("BoxMesh_qnuxe")
+
+[node name="WheelPlatform" type="MeshInstance3D" parent="Hull" unique_id=632128781]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.508562, 3.8)
+mesh = SubResource("BoxMesh_mlvbt")
+
+[node name="BottomCol" type="CollisionShape3D" parent="." unique_id=300768146]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2915378, 0)
+shape = SubResource("BoxShape3D_pm0dr")
+
+[node name="LeftCol" type="CollisionShape3D" parent="." unique_id=625272913]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1, 0.60846233, 0)
+shape = SubResource("BoxShape3D_r686l")
+
+[node name="RightCol" type="CollisionShape3D" parent="." unique_id=771814888]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1, 0.60846233, 0)
+shape = SubResource("BoxShape3D_hleft")
+
+[node name="FrontCol" type="CollisionShape3D" parent="." unique_id=2014374885]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.60846233, -5.9)
+shape = SubResource("BoxShape3D_wt1xo")
+
+[node name="BackCol" type="CollisionShape3D" parent="." unique_id=408802198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.60846233, 5.9)
+shape = SubResource("BoxShape3D_jsi37")
+
+[node name="WheelPlatform" type="CollisionShape3D" parent="." unique_id=425913982]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.508562, 3.8)
+shape = SubResource("BoxShape3D_tahk8")
+
+[node name="BuoyancyPoints" type="Node3D" parent="." unique_id=218901415]
+
+[node name="Marker3D" type="Marker3D" parent="BuoyancyPoints" unique_id=1371366889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -0.45344377, 5)
+
+[node name="Marker3D2" type="Marker3D" parent="BuoyancyPoints" unique_id=2040413494]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, -0.45344377, 5)
+
+[node name="Marker3D3" type="Marker3D" parent="BuoyancyPoints" unique_id=453745386]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, -0.45344377, -5)
+
+[node name="Marker3D4" type="Marker3D" parent="BuoyancyPoints" unique_id=2100062302]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, -0.45344377, -5)
+
+[node name="WaterMask" type="MeshInstance3D" parent="." unique_id=780826309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.362086, 0)
+visible = false
+mesh = SubResource("PlaneMesh_2pt8w")
+surface_material_override/0 = ExtResource("2_wt1xo")

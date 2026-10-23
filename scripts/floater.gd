@@ -1,18 +1,22 @@
 extends RigidBody3D
 
+@export var water: MeshInstance3D
+
 @export var water_level: float = 0.0
 @export var desired_sink: float = 0.8 # Agirlik arttikca azalacak
 @export var drag_factor: float = 2.0
-
 @export var buoyancy_points: Array[Node3D] = []
 
+var water_shader: ShaderMaterial
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
-
 var water_str: float
 var in_water: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print(get_path())
+	print("Water reference: ", water)
+	water_shader = water.get_active_material(0)
 	if buoyancy_points.size() > 0:
 		water_str = (mass * gravity) / (desired_sink * buoyancy_points.size())
 	else:
@@ -22,6 +26,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	water_shader.set_shader_parameter("ship_inverse_transform",global_transform.affine_inverse())
 	in_water = false
 	for i in buoyancy_points:
 		if i.global_position.y < water_level:
