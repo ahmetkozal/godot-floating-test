@@ -82,7 +82,7 @@ func _on_wheel_player_on_wheel() -> void:
 	on_wheel = true
 func _on_wheel_player_not_on_wheel() -> void:
 	on_wheel = false
-func _on_sails_controls_body_entered(w: Node3D) -> void:
+func _on_sails_controls_body_entered(body: Node3D) -> void:
 	on_sails = true
 func _on_sails_controls_body_exited(body: Node3D) -> void:
 	on_sails = false

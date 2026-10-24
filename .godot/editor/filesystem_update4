@@ -1,8 +1,4 @@
-res://scenes/box_sloop.tscn
+res://scenes/dark_sea.tscn
 res://assets/toon_water/toon_water.gdshader
+res://scenes/dark_sea.gdshader
 res://materials/water-mask.gdshader
-res://scripts/sails_controls.gd
-res://scenes/test_scene.tscn
-res://scripts/player.gd
-res://scenes/sails.tscn
-res://scripts/sloop_controls.gd

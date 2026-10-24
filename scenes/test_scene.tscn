@@ -10,16 +10,16 @@
 transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 13, 0)
 
 [node name="WaterScene2" parent="." unique_id=112002650 instance=ExtResource("1_uhqqe")]
-transform = Transform3D(67.52, 0, 0, 0, 67.52, 0, 0, 0, 67.52, 0, 0, 0)
+transform = Transform3D(150, 0, 0, 0, 150, 0, 0, 0, 150, 0, 0, 0)
 
 [node name="Player" parent="." unique_id=381574291 node_paths=PackedStringArray("sloop", "sloop_controls", "sail_controls") instance=ExtResource("3_sasra")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 14.397004, 6.028466, 3.5517416)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 14.397004, 14.071859, 3.5517416)
 sloop = NodePath("../BoxSloop")
 sloop_controls = NodePath("../BoxSloop/SloopControls")
 sail_controls = NodePath("../BoxSloop/SailsControls")
 
 [node name="BoxSloop" parent="." unique_id=1119565273 node_paths=PackedStringArray("water") instance=ExtResource("4_7ddre")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.325947, 0.53598857, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.325947, 7.974598, 0)
 water = NodePath("../WaterScene2")
 desired_sink = 0.2
 

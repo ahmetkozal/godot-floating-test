@@ -1,11 +1,10 @@
 extends StaticBody3D
 
-const MAX_VEL: float = -600
-const ADD_VEL: float = 2
-const MAX_SPEED: float = -600
-
 @export var sloop: RigidBody3D
 @export var player: CharacterBody3D
+
+var MAX_VEL: float = -2000
+const ADD_VEL: float = 2
 
 var vel_to: Vector3
 
