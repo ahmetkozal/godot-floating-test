@@ -1,4 +1,5 @@
 res://scenes/dark_sea.tscn
 res://assets/toon_water/toon_water.gdshader
-res://scenes/dark_sea.gdshader
+res://materials/dark_sea.gdshader
 res://materials/water-mask.gdshader
+res://scripts/dark_sea.gdshader

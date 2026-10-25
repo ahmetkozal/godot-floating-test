@@ -1,35 +1,27 @@
 [gd_scene format=3 uid="uid://b43kipeax0m2l"]
 
-[ext_resource type="Shader" uid="uid://dlwukjjfqkra3" path="res://materials/dark_sea.gdshader" id="1_o38n1"]
+[ext_resource type="Shader" uid="uid://cw0sc5762fjc5" path="res://scripts/dark_sea.gdshader" id="1_o38n1"]
 [ext_resource type="Texture2D" uid="uid://bnxglpvdjtjpj" path="res://icon.svg" id="2_7weg4"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jfr5e"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ompgf"]
 render_priority = 0
 shader = ExtResource("1_o38n1")
 shader_parameter/base_color = Color(1, 1, 1, 1)
 shader_parameter/base_texture = ExtResource("2_7weg4")
-shader_parameter/scroll_speed = 1.0
-shader_parameter/rotation_radians = 0.0
-shader_parameter/rotation_center = Vector2(0.5, 0.5)
+shader_parameter/wave_speed = 0.0
+shader_parameter/wave_height = 0.0
+shader_parameter/wave_scale = 1.0
+shader_parameter/wave_darkening = 0.5
 
-[sub_resource type="SphereMesh" id="SphereMesh_7weg4"]
-material = SubResource("ShaderMaterial_jfr5e")
+[sub_resource type="PlaneMesh" id="PlaneMesh_e4l18"]
+material = SubResource("ShaderMaterial_ompgf")
+subdivide_width = 20
+subdivide_depth = 20
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7weg4"]
-render_priority = 0
-shader = ExtResource("1_o38n1")
-shader_parameter/base_color = Color(1, 1, 1, 1)
-shader_parameter/base_texture = ExtResource("2_7weg4")
-shader_parameter/scroll_speed = 1.0
-shader_parameter/rotation_radians = 0.0
-shader_parameter/rotation_center = Vector2(0.5, 0.5)
+[node name="Node3D" type="Node3D" unique_id=521829596]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_qt6nl"]
-material = SubResource("ShaderMaterial_7weg4")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2017509130]
+mesh = SubResource("PlaneMesh_e4l18")
 
-[node name="DarkSea" type="MeshInstance3D" unique_id=168655708]
-mesh = SubResource("SphereMesh_7weg4")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2004331425]
-transform = Transform3D(2.9802322e-08, -1, 0, 1, 2.9802322e-08, 0, 0, 0, 1, 0, 0, 1.8876886)
-mesh = SubResource("PlaneMesh_qt6nl")
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=109769948]
+mesh = SubResource("PlaneMesh_e4l18")
