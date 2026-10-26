@@ -1,15 +1,17 @@
 [gd_scene format=3 uid="uid://b43kipeax0m2l"]
 
-[ext_resource type="Shader" uid="uid://cw0sc5762fjc5" path="res://scripts/dark_sea.gdshader" id="1_o38n1"]
+[ext_resource type="Shader" uid="uid://cw0sc5762fjc5" path="res://shaders/dark_sea.gdshader" id="1_o38n1"]
 [ext_resource type="Texture2D" uid="uid://bnxglpvdjtjpj" path="res://icon.svg" id="2_7weg4"]
+[ext_resource type="Material" path="res://assets/Rocks022_1K-JPG/Rocks022_1K-JPG.tres" id="3_cq3pm"]
+[ext_resource type="Shader" uid="uid://c64ef2rpc3unk" path="res://shaders/outline.gdshader" id="3_jfr5e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ompgf"]
 render_priority = 0
 shader = ExtResource("1_o38n1")
 shader_parameter/base_color = Color(1, 1, 1, 1)
 shader_parameter/base_texture = ExtResource("2_7weg4")
-shader_parameter/wave_speed = 0.0
-shader_parameter/wave_height = 0.0
+shader_parameter/wave_speed = 0.5
+shader_parameter/wave_height = 0.1
 shader_parameter/wave_scale = 1.0
 shader_parameter/wave_darkening = 0.5
 
@@ -18,10 +20,28 @@ material = SubResource("ShaderMaterial_ompgf")
 subdivide_width = 20
 subdivide_depth = 20
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2sy67"]
+render_priority = 0
+shader = ExtResource("3_jfr5e")
+shader_parameter/outline_width = 0.0
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qt6nl"]
+render_priority = 0
+shader = ExtResource("3_jfr5e")
+shader_parameter/outline_width = 0.02
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_pm0dr"]
+material = SubResource("ShaderMaterial_qt6nl")
+
 [node name="Node3D" type="Node3D" unique_id=521829596]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2017509130]
 mesh = SubResource("PlaneMesh_e4l18")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=109769948]
-mesh = SubResource("PlaneMesh_e4l18")
+[node name="Sphere" type="MeshInstance3D" parent="." unique_id=453694180]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+material_override = ExtResource("3_cq3pm")
+material_overlay = SubResource("ShaderMaterial_2sy67")
+mesh = SubResource("SphereMesh_pm0dr")

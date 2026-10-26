@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://davhlj0h5ofur" path="res://scripts/floater.gd" id="1_n4okx"]
 [ext_resource type="PackedScene" uid="uid://d0rxes64kc2t6" path="res://assets/sloop-body.glb" id="1_vkja7"]
-[ext_resource type="Material" uid="uid://ctb4vedljb3xb" path="res://materials/water-mask.tres" id="3_n5tk3"]
+[ext_resource type="Material" uid="uid://ctb4vedljb3xb" path="res://shaders/water-mask.tres" id="3_n5tk3"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_2jcuo"]
 material = ExtResource("3_n5tk3")
